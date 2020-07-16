@@ -1,0 +1,30 @@
+Diagrama de banco de dados composto por quatro tabelas: Pessoas, Níveis, Turmas e Matrículas.
+
+A tabela Pessoas é composta pelas colunas:
+ID: dado do tipo inteiro
+nome: dado do tipo string
+ativo: dado do tipo boolean
+email: dado do tipo string
+role: dado do tipo string
+
+A tabela Niveis é composta pelas colunas:
+ID: dado do tipo inteiro
+descr_nivel: dado do tipo string
+
+A tabela Turmas é composta pelas colunas:
+ID: dado do tipo inteiro
+docente_id: dado do tipo ID/inteiro
+data_inicio: dado do tipo dateonly
+nivel_id: dado do tipo ID/inteiro
+
+A tabela Matriculas é composta pelas colunas:
+ID: dado do tipo inteiro
+status: dado do tipo string
+estudante_id: dado do tipo ID/inteiro
+turma_id: dado do tipo ID/inteiro
+
+A tabela Pessoas está relacionada à tabela Turmas através de uma FK, ou chave estrangeira, na coluna "docente_id". Também está ligada à tabela Matrículas através de chave estrangeira na coluna "estudante_id". As duas relações são do tipo "um para muitos": uma Pessoa para muitas Turmas e uma pessoa para muitas Matrículas.
+
+A tabela Níveis está relacionada à tabela Turmas através de uma chave estrangeira na coluna "nivel_id". É uma relação de "um nível para muitas Turmas".
+
+A tabela Turmas está relacionada à tabela Matrículas através de uma chave estrangeira na coluna "turma_id". É uma relação de "uma Turma para muitas Matrículas".
