@@ -129,7 +129,7 @@ class PessoaController {
           estudante_id: Number(estudanteId)
         } 
       })
-      return res.status(200).json({ mensagem: `id ${id} restaurado`})
+      return res.status(200).json({ mensagem: `id ${matriculaId} restaurado`})
     } catch (error) {
       return res.status(500).json(error.message)
     }
