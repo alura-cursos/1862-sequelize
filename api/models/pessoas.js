@@ -9,7 +9,12 @@ module.exports = (sequelize, DataTypes) => {
     paranoid: true,
     defaultScope: {
       where: { ativo: true }
-    }})
+    },  
+    scopes: {
+      todos: { where: {} },
+      //etc: { constraint: valor }
+    }
+  })
   Pessoas.associate = function(models) {
     Pessoas.hasMany(models.Turmas, {
       foreignKey: 'docente_id'
