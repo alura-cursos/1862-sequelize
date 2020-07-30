@@ -2,7 +2,7 @@ const Services = require('../services/Services')
 const niveisServices = new Services('Niveis')
 
 class NivelController {
-  static async pegaTodosOsNiveis(req, res){ //ok
+  static async pegaTodosOsNiveis(req, res){  
     try {
       const todosOsNiveis = await niveisServices.pegaTodosOsRegistros()
       return res.status(200).json(todosOsNiveis)  
@@ -11,7 +11,7 @@ class NivelController {
     }
   }
 
-  static async pegaNivel(req, res) { //ok
+  static async pegaNivel(req, res) {  
     const { id } = req.params
     try {
       const nivel = await niveisServices.pegaUmRegistro({ id })
@@ -21,7 +21,7 @@ class NivelController {
     }
   }
 
-  static async criaNivel(req, res) { //ok
+  static async criaNivel(req, res) {  
     const novoNivel = req.body
     try {
       const novoNivelCriado = await niveisServices.criaRegistro(novoNivel)
@@ -31,7 +31,7 @@ class NivelController {
     }
   }
 
-  static async atualizaNivel(req, res) { //ok
+  static async atualizaNivel(req, res) {  
     const { id } = req.params
     const novasInfos = req.body
     try {
@@ -42,7 +42,7 @@ class NivelController {
     }
   }
 
-  static async apagaNivel(req, res) { //ok
+  static async apagaNivel(req, res) {  
     const { id } = req.params
     try {
       await niveisServices.apagaRegistro(id)
@@ -53,7 +53,7 @@ class NivelController {
     }
   }
 
-  static async restauraNivel(req, res) { //ok
+  static async restauraNivel(req, res) {  
     const { id } = req.params
     try {
       await niveisServices.restauraRegistro(id)

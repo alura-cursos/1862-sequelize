@@ -2,7 +2,7 @@ const { PessoasServices } = require('../services')
 const pessoasServices = new PessoasServices()
 
 class PessoaController {
-  static async pegaPessoasAtivas(req, res){ //ok
+  static async pegaPessoasAtivas(req, res){  
     try {
       const pessoasAtivas = await pessoasServices.pegaRegistrosAtivos()
       return res.status(200).json(pessoasAtivas)  
@@ -11,7 +11,7 @@ class PessoaController {
     }
   }
 
-  static async pegaTodasAsPessoas(req, res){ //ok
+  static async pegaTodasAsPessoas(req, res){  
     try {
       const todasAsPessoas = await pessoasServices.pegaTodosOsRegistros()
       return res.status(200).json(todasAsPessoas)  
@@ -20,7 +20,7 @@ class PessoaController {
     }
   }
 
-  static async pegaPessoa(req, res) { //ok
+  static async pegaPessoa(req, res) {  
     const { id } = req.params
     try {
       const pessoa = await pessoasServices.pegaUmRegistro({ id })
@@ -30,7 +30,7 @@ class PessoaController {
     }
   }
 
-  static async criaPessoa(req, res) { //ok
+  static async criaPessoa(req, res) {  
     const novaPessoa = req.body
     try {
       const novaPessoaCriada = await pessoasServices.criaRegistro(novaPessoa)
@@ -40,7 +40,7 @@ class PessoaController {
     }
   }
 
-  static async atualizaPessoa(req, res) { //ok
+  static async atualizaPessoa(req, res) {  
     const { id } = req.params
     const novasInfos = req.body
     try {
@@ -51,7 +51,7 @@ class PessoaController {
     }
   }
 
-  static async apagaPessoa(req, res) { //ok
+  static async apagaPessoa(req, res) {  
     const { id } = req.params
     try {
       await pessoasServices.apagaRegistro(Number(id))
@@ -61,7 +61,7 @@ class PessoaController {
     }
   }
 
-  static async restauraPessoa(req, res) { //ok
+  static async restauraPessoa(req, res) {  
     const { id } = req.params
     try {
       const registroRestaurado = await pessoasServices
@@ -72,7 +72,7 @@ class PessoaController {
     }
   }
 
-  static async pegaMatriculas(req, res) { //ok
+  static async pegaMatriculas(req, res) {  
     const { estudanteId } = req.params
     try {
       const matriculas = await pessoasServices
@@ -83,11 +83,13 @@ class PessoaController {
     }
   }
 
-  static async cancelaPessoa(req, res) { //ok
+  static async cancelaPessoa(req, res) {  
     const { estudanteId } = req.params
     try {
       await pessoasServices.cancelaPessoaEMatriculas(Number(estudanteId))
-      return res.status(200).json({ message: `matrículas ref. estudante ${estudanteId} canceladas` }) 
+      return res
+        .status(200)
+        .json({message: `matrículas ref. estudante ${estudanteId} canceladas`}) 
     } catch (error) {
       return res.status(500).json(error.message)
     }

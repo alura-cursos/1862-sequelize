@@ -5,7 +5,7 @@ const Op = Sequelize.Op
 const turmasService = new TurmasServices()
 
 class TurmaController {
-  static async pegaTodasAsTurmas(req, res){ //ok
+  static async pegaTodasAsTurmas(req, res){  
     const { data_inicial, data_final } = req.query
     const where = {}
     data_inicial || data_final ? where.data_inicio = {} : null
@@ -19,7 +19,7 @@ class TurmaController {
     }
   }
 
-  static async pegaTurma(req, res) { //ok
+  static async pegaTurma(req, res) {  
     const { id } = req.params
     try {
       const turma = await turmasService.pegaUmRegistro({ id })
@@ -29,7 +29,7 @@ class TurmaController {
     }
   }
 
-  static async criaTurma(req, res) { //ok
+  static async criaTurma(req, res) {  
     const novaTurma = req.body
     try {
       const novaTurmaCriada = await turmasService.criaRegistro(novaTurma)
@@ -39,7 +39,7 @@ class TurmaController {
     }
   }
 
-  static async atualizaTurma(req, res) { //ok
+  static async atualizaTurma(req, res) {  
     const { id } = req.params
     const novasInfos = req.body
     try {
@@ -50,7 +50,7 @@ class TurmaController {
     }
   }
 
-  static async apagaTurma(req, res) { //ok
+  static async apagaTurma(req, res) {  
     const { id } = req.params
     try {
       await turmasService.apagaRegistro(id)
@@ -62,7 +62,7 @@ class TurmaController {
   }
 
 
-  static async restauraTurma(req, res) { //ok
+  static async restauraTurma(req, res) {  
     const { id } = req.params
     try {
       await turmasService.restauraRegistro(id)

@@ -3,7 +3,7 @@ const { MatriculasServices } = require('../services')
 const matriculasServices = new MatriculasServices()
 
 class MatriculaController {
-  static async pegaUmaMatricula(req, res) { //ok
+  static async pegaUmaMatricula(req, res) { 
     const { estudanteId, matriculaId } = req.params
     try {
       const umaMatricula = await matriculasServices
@@ -14,7 +14,7 @@ class MatriculaController {
     }
   }
 
-  static async criaMatricula(req, res) { //ok
+  static async criaMatricula(req, res) {  
     const { estudanteId } = req.params
     const novaMatricula = { ...req.body, estudante_id: Number(estudanteId) }
     try {
@@ -26,7 +26,7 @@ class MatriculaController {
     }
   }
 
-  static async atualizaMatricula(req, res) { //ok
+  static async atualizaMatricula(req, res) {  
     const { estudanteId, matriculaId } = req.params
     const novasInfos = req.body
     try {
@@ -39,7 +39,7 @@ class MatriculaController {
     }
   }
 
-  static async apagaMatricula(req, res) { //ok
+  static async apagaMatricula(req, res) {  
     const { matriculaId } = req.params
     try {
       await matriculasServices.apagaRegistro(Number(matriculaId))
@@ -50,7 +50,7 @@ class MatriculaController {
     }
   }
 
-  static async restauraMatricula(req, res) { //ok
+  static async restauraMatricula(req, res) {  
     const { matriculaId } = req.params
     try {
       await matriculasServices
@@ -61,7 +61,7 @@ class MatriculaController {
     }
   }
 
-  static async pegaMatriculasPorTurma(req, res) {  //ok
+  static async pegaMatriculasPorTurma(req, res) {   
     const { turmaId } = req.params
     try {
       const todasAsMatriculas = await matriculasServices
@@ -74,7 +74,7 @@ class MatriculaController {
     }
   }
 
-  static async pegaTurmasLotadas(req, res) { //ok
+  static async pegaTurmasLotadas(req, res) {  
     const lotacaoTurma = 2
     try {
       const turmasLotadas = await matriculasServices

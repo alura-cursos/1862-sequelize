@@ -27,7 +27,6 @@ module.exports = (sequelize, DataTypes) => {
     },  
     scopes: {
       todos: { where: {} },
-      //etc: { constraint: valor }
     }
   })
   Pessoas.associate = function(models) {
